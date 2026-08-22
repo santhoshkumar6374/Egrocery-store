@@ -1,0 +1,54 @@
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Respect reduced-motion preferences across the app */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Visible keyboard focus, styled to match the brand rather than the browser default */
+:focus-visible {
+  outline: 2px solid #2F5233;
+  outline-offset: 2px;
+}
+
+/*
+ * The "awning stripe" — a repeating diagonal green/kraft band used as a thin
+ * signature rule under the top bar and behind the auth split-screen. It's the
+ * one recurring motif tying the storefront back to a canvas market awning.
+ */
+.awning-stripe {
+  height: 6px;
+  background: repeating-linear-gradient(
+    45deg,
+    #2F5233,
+    #2F5233 14px,
+    #E8DCC4 14px,
+    #E8DCC4 28px
+  );
+}
