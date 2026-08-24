@@ -38,10 +38,6 @@ public class Address {
     @Column(length = 10)
     private String pincode;
 
-    private Double latitude;
-
-    private Double longitude;
-
     @Builder.Default
     @Column(nullable = false)
     private boolean isDefault = false;

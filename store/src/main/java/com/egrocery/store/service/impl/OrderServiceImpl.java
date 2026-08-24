@@ -118,8 +118,8 @@ public class OrderServiceImpl implements OrderService {
                     .city(address.getCity())
                     .state(address.getState())
                     .pincode(address.getPincode())
-                    .latitude(address.getLatitude())
-                    .longitude(address.getLongitude())
+                    
+                    
                     .distanceKm(estimate.getDistanceKm())
                     .deliveryCharge(estimate.getDeliveryFee())
                     .estimatedDeliveryMinutes(estimate.getEstimatedDeliveryMinutes())

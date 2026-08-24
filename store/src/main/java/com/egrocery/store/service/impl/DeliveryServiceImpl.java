@@ -14,19 +14,19 @@ import com.egrocery.store.service.CartService;
 import com.egrocery.store.service.DeliveryService;
 import com.egrocery.store.util.GeoUtil;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class DeliveryServiceImpl implements DeliveryService {
 
-    /** Minutes added on top of packing time regardless of distance. */
     private static final int BASE_PREP_MINUTES = 20;
-    /** Extra minutes per km of travel. */
     private static final int MINUTES_PER_KM = 4;
 
     private final DeliveryChargeRepository deliveryChargeRepository;
@@ -108,8 +108,11 @@ public class DeliveryServiceImpl implements DeliveryService {
             throw new BadRequestException("You do not have access to this address");
         }
 
-        double customerLat = address.getLatitude() != null ? address.getLatitude() : shopProperties.getLatitude();
-        double customerLng = address.getLongitude() != null ? address.getLongitude() : shopProperties.getLongitude();
+        // Use shop location as default - customer will see distance from shop
+        double customerLat = shopProperties.getLatitude();
+        double customerLng = shopProperties.getLongitude();
+
+        log.info("Estimating delivery for address {}: using shop location as reference", addressId);
 
         BigDecimal cartTotal = cartService.getCart(userId).getItemsTotal();
 

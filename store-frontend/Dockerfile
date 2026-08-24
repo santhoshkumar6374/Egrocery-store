@@ -1,15 +1,17 @@
 # ---- Build stage ----
-FROM node:22-alpine AS build
+FROM node:22-bookworm AS build
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm ci
+
+RUN npm config set fetch-retries 5 && \
+    npm config set fetch-retry-mintimeout 20000 && \
+    npm config set fetch-retry-maxtimeout 120000 && \
+    npm ci --no-audit --no-fund
 
 COPY . .
 
-# Baked in at build time — Vite inlines env vars into the static bundle, so this
-# must point at wherever the backend will actually be reachable from the browser
-# (not the Docker service name; browsers can't resolve that).
+# Vite inlines this value into the frontend bundle at build time
 ARG VITE_API_BASE_URL=http://localhost:8080
 ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
 

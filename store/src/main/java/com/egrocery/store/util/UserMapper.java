@@ -33,8 +33,8 @@ public final class UserMapper {
                 .city(address.getCity())
                 .state(address.getState())
                 .pincode(address.getPincode())
-                .latitude(address.getLatitude())
-                .longitude(address.getLongitude())
+                
+                
                 .isDefault(address.isDefault())
                 .build();
     }

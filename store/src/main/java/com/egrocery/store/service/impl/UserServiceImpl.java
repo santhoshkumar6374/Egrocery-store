@@ -76,8 +76,8 @@ public class UserServiceImpl implements UserService {
                 .city(request.getCity())
                 .state(request.getState())
                 .pincode(request.getPincode())
-                .latitude(request.getLatitude())
-                .longitude(request.getLongitude())
+                
+                
                 .isDefault(Boolean.TRUE.equals(request.getIsDefault()))
                 .build();
 

@@ -19,7 +19,5 @@ public class AddressRequest {
     private String city;
     private String state;
     private String pincode;
-    private Double latitude;
-    private Double longitude;
     private Boolean isDefault;
 }
