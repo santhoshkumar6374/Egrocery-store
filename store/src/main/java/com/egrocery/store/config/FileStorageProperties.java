@@ -16,4 +16,9 @@ public class FileStorageProperties {
     private String urlPrefix = "/uploads/products";
 
     private long maxSizeBytes = 5 * 1024 * 1024; // 5MB
+
+    /** Cloudinary configuration */
+    private String cloudName;
+    private String apiKey;
+    private String apiSecret;
 }
