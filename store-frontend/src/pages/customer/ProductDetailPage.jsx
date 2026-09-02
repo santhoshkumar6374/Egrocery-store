@@ -463,7 +463,7 @@ export default function ProductDetailPage() {
           </Typography>
           <Grid container spacing={3}>
             {relatedProducts.map((relProduct) => (
-              <Grid key={relProduct.id} size={{ xs: 12, sm: 6, md: 3 }}>
+              <Grid key={relProduct.id} size={{ xs: 6, sm: 6, md: 4, lg: 4 }}>
                 <ProductCard product={relProduct} />
               </Grid>
             ))}

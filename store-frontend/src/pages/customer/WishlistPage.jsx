@@ -31,7 +31,7 @@ export default function WishlistPage() {
       </Typography>
       <Grid container spacing={3}>
         {items.map((item) => (
-          <Grid key={item.id} size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
+          <Grid key={item.id} size={{ xs: 6, sm: 6, md: 4, lg: 4 }}>
             <WishlistCard item={item} />
           </Grid>
         ))}
