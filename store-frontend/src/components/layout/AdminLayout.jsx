@@ -112,7 +112,7 @@ export default function AdminLayout() {
     </Box>
   );
   return (
-    <Box sx={{ display: 'flex', minHeight: '100vh', bgcolor: '#FFFFFF' }}>
+    <Box sx={{ display: 'flex', minHeight: '100vh', bgcolor: '#FFFFFF', maxWidth: '100vw', overflowX: 'hidden' }}>
       <AppBar
         position="fixed"
         elevation={0}
@@ -171,10 +171,10 @@ export default function AdminLayout() {
           {drawerContent}
         </Drawer>
       </Box>
-      <Box component="main" sx={{ flexGrow: 1, width: { md: `calc(100% - ${DRAWER_WIDTH}px)` } }}>
+      <Box component="main" sx={{ flexGrow: 1, minWidth: 0, width: { xs: '100%', md: `calc(100% - ${DRAWER_WIDTH}px)` }, maxWidth: '100%', overflowX: 'hidden' }}>
         <Toolbar />
-        <Box sx={{ p: { xs: 1.5, sm: 2, md: 4 } }}>
-          <Stack>
+        <Box sx={{ p: { xs: 1.5, sm: 2, md: 4 }, minWidth: 0, maxWidth: '100%' }}>
+          <Stack sx={{ minWidth: 0, maxWidth: '100%' }}>
             <Outlet />
           </Stack>
         </Box>

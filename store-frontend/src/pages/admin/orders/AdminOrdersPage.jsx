@@ -59,9 +59,9 @@ export default function AdminOrdersPage() {
 
   return (
     <Box>
-      <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 3 }}>
+      <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent="space-between" alignItems={{ xs: 'flex-start', sm: 'center' }} spacing={1.5} sx={{ mb: 3 }}>
         <Typography variant="h4">Orders</Typography>
-        <TextField select size="small" label="Status" value={status} onChange={(e) => updateParams({ status: e.target.value })} sx={{ minWidth: 200 }}>
+        <TextField select size="small" label="Status" value={status} onChange={(e) => updateParams({ status: e.target.value })} sx={{ minWidth: 200, width: { xs: '100%', sm: 'auto' } }}>
           <MenuItem value="">All Statuses</MenuItem>
           {STATUSES.map((s) => (
             <MenuItem key={s} value={s}>

@@ -64,7 +64,7 @@ export default function AdminInventoryPage() {
         Inventory
       </Typography>
 
-      <Tabs value={tab} onChange={handleTabChange} sx={{ mb: 3 }}>
+      <Tabs value={tab} onChange={handleTabChange} variant="scrollable" scrollButtons="auto" allowScrollButtonsMobile sx={{ mb: 3 }}>
         <Tab label="All Products" value="ALL" />
         <Tab label="Low Stock" value="LOW_STOCK" />
         <Tab label="Out of Stock" value="OUT_OF_STOCK" />
