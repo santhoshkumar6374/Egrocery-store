@@ -167,7 +167,7 @@ export default function TopNav() {
               fontSize: { xs: '1.25rem', sm: '1.5rem' },
             }}
           >
-            <ShoppingBasketOutlinedIcon fontSize="medium" />
+            <Box component="img" src="/logo.png" alt="EGrocery" sx={{ width: 36, height: 36, borderRadius: '50%', objectFit: 'cover' }} />
             {SHOP_NAME}
           </Typography>
 

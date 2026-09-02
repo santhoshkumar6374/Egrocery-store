@@ -60,7 +60,7 @@ export default function AdminLayout() {
   const drawerContent = (
     <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
       <Toolbar sx={{ gap: 1 }}>
-        <ShoppingBasketOutlinedIcon sx={{ color: 'primary.main' }} />
+        <Box component="img" src="/logo.png" alt="EGrocery" sx={{ width: 32, height: 32, borderRadius: '50%', objectFit: 'cover' }} />
         <Typography variant="subtitle1" fontWeight={700} noWrap>
           {SHOP_NAME}
         </Typography>
