@@ -56,7 +56,7 @@ export default function BestSellingReportTab({ from, to, setFrom, setTo }) {
       ) : error ? (
         <Alert severity="error">{error}</Alert>
       ) : (
-        <Paper variant="outlined">
+        <Paper variant="outlined" sx={{ overflowX: 'auto', width: '100%', borderRadius: 2 }}>
           <Table>
             <TableHead>
               <TableRow>

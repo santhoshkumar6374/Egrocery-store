@@ -23,7 +23,7 @@ export default function AdminReportsPage() {
         Reports
       </Typography>
 
-      <Tabs value={tab} onChange={(_e, v) => setTab(v)} sx={{ mb: 3 }}>
+      <Tabs value={tab} onChange={(_e, v) => setTab(v)} variant="scrollable" scrollButtons="auto" allowScrollButtonsMobile sx={{ mb: 3 }}>
         <Tab label="Sales" value="sales" />
         <Tab label="Best Sellers" value="best-selling" />
         <Tab label="Revenue" value="revenue" />

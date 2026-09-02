@@ -173,7 +173,7 @@ export default function AdminLayout() {
       </Box>
       <Box component="main" sx={{ flexGrow: 1, width: { md: `calc(100% - ${DRAWER_WIDTH}px)` } }}>
         <Toolbar />
-        <Box sx={{ p: { xs: 2, md: 4 } }}>
+        <Box sx={{ p: { xs: 1.5, sm: 2, md: 4 } }}>
           <Stack>
             <Outlet />
           </Stack>

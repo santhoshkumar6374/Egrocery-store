@@ -147,7 +147,7 @@ export default function AdminReviewsPage() {
         </Box>
       ) : (
         <>
-          <Paper variant="outlined" sx={{ borderRadius: 2 }}>
+          <Paper variant="outlined" sx={{ overflowX: 'auto', width: '100%', borderRadius: 2 }}>
             <Table>
               <TableHead>
                 <TableRow>

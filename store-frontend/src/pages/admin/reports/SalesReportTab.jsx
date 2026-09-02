@@ -49,7 +49,7 @@ export default function SalesReportTab({ from, to, setFrom, setTo }) {
             </Grid>
           </Grid>
 
-          <Paper variant="outlined">
+          <Paper variant="outlined" sx={{ overflowX: 'auto', width: '100%', borderRadius: 2 }}>
             <Table size="small">
               <TableHead>
                 <TableRow>
