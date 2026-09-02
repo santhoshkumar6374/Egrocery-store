@@ -332,32 +332,44 @@ export default function ProductDetailPage() {
           )}
 
           {isCustomer && inStock && (
-            <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 3 }}>
-              <Stack
-                direction="row"
-                alignItems="center"
-                sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 2, p: 0.5 }}
-              >
+            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} alignItems={{ xs: 'stretch', sm: 'center' }} sx={{ mb: 3 }}>
+              <Stack direction="row" spacing={2} alignItems="center" justifyContent="space-between">
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 2, p: 0.5 }}
+                >
+                  <IconButton
+                    size="small"
+                    onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+                    disabled={quantity <= 1}
+                  >
+                    <RemoveIcon fontSize="small" />
+                  </IconButton>
+                  <Typography
+                    sx={{ minWidth: 36, textAlign: 'center', fontFamily: '"IBM Plex Mono", monospace', fontWeight: 700 }}
+                  >
+                    {quantity}
+                  </Typography>
+                  <IconButton
+                    size="small"
+                    onClick={() => setQuantity((q) => Math.min(maxQuantity, q + 1))}
+                    disabled={quantity >= maxQuantity}
+                  >
+                    <AddIcon fontSize="small" />
+                  </IconButton>
+                </Stack>
+
                 <IconButton
-                  size="small"
-                  onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                  disabled={quantity <= 1}
+                  onClick={handleToggleWishlist}
+                  disabled={wishBusy}
+                  sx={{ border: '1px solid', borderColor: 'divider', p: 1.5, display: { xs: 'flex', sm: 'none' } }}
+                  aria-label={isWishlisted(product.id) ? 'Remove from wishlist' : 'Add to wishlist'}
                 >
-                  <RemoveIcon fontSize="small" />
-                </IconButton>
-                <Typography
-                  sx={{ minWidth: 32, textAlign: 'center', fontFamily: '"IBM Plex Mono", monospace', fontWeight: 700 }}
-                >
-                  {quantity}
-                </Typography>
-                <IconButton
-                  size="small"
-                  onClick={() => setQuantity((q) => Math.min(maxQuantity, q + 1))}
-                  disabled={quantity >= maxQuantity}
-                >
-                  <AddIcon fontSize="small" />
+                  {isWishlisted(product.id) ? <FavoriteIcon color="secondary" /> : <FavoriteBorderOutlinedIcon />}
                 </IconButton>
               </Stack>
+
               <Button
                 variant="contained"
                 size="large"
@@ -367,10 +379,11 @@ export default function ProductDetailPage() {
               >
                 {adding ? 'Adding…' : 'Add to Cart'}
               </Button>
+
               <IconButton
                 onClick={handleToggleWishlist}
                 disabled={wishBusy}
-                sx={{ border: '1px solid', borderColor: 'divider', p: 1.5 }}
+                sx={{ border: '1px solid', borderColor: 'divider', p: 1.5, display: { xs: 'none', sm: 'flex' } }}
                 aria-label={isWishlisted(product.id) ? 'Remove from wishlist' : 'Add to wishlist'}
               >
                 {isWishlisted(product.id) ? <FavoriteIcon color="secondary" /> : <FavoriteBorderOutlinedIcon />}

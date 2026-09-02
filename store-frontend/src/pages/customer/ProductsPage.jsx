@@ -313,8 +313,14 @@ export default function ProductsPage() {
           <Stack
             direction="row"
             sx={{
-              flexWrap: 'wrap',
+              flexWrap: { xs: 'nowrap', sm: 'wrap' },
+              overflowX: { xs: 'auto', sm: 'visible' },
+              py: { xs: 0.5, sm: 0 },
+              pb: { xs: 1, sm: 0 },
               gap: 1.2,
+              '&::-webkit-scrollbar': { display: 'none' },
+              msOverflowStyle: 'none',
+              scrollbarWidth: 'none',
             }}
           >
             <Chip
@@ -339,6 +345,7 @@ export default function ProductsPage() {
                 borderRadius: 2,
                 fontWeight: 600,
                 px: 0.5,
+                flexShrink: 0,
               }}
             />
 
@@ -372,6 +379,7 @@ export default function ProductsPage() {
                     borderRadius: 2,
                     fontWeight: 600,
                     px: 0.5,
+                    flexShrink: 0,
                   }}
                 />
               );

@@ -212,12 +212,14 @@ export default function HomePage() {
                 elevation={0}
                 sx={{
                   mt: 4,
-                  p: 0.8,
-                  borderRadius: 50,
+                  p: { xs: 0.5, sm: 0.8 },
+                  borderRadius: { xs: 3, sm: 50 },
                   bgcolor: 'rgba(255, 255, 255, 0.95)',
                   boxShadow: '0 12px 35px rgba(0,0,0,0.2)',
                   display: 'flex',
-                  alignItems: 'center',
+                  flexDirection: { xs: 'column', sm: 'row' },
+                  alignItems: { xs: 'stretch', sm: 'center' },
+                  gap: { xs: 1, sm: 0 },
                   maxWidth: 540,
                   backdropFilter: 'blur(10px)',
                 }}
@@ -232,7 +234,7 @@ export default function HomePage() {
                     input: {
                       disableUnderline: true,
                       startAdornment: (
-                        <InputAdornment position="start" sx={{ pl: 2 }}>
+                        <InputAdornment position="start" sx={{ pl: { xs: 1.5, sm: 2 } }}>
                           <SearchOutlinedIcon sx={{ color: '#075e3f' }} />
                         </InputAdornment>
                       ),
@@ -240,8 +242,9 @@ export default function HomePage() {
                   }}
                   sx={{
                     px: 1,
+                    py: { xs: 0.5, sm: 0 },
                     '& input': {
-                      fontSize: 15,
+                      fontSize: { xs: 14, sm: 15 },
                       fontWeight: 500,
                       color: '#1a2e24',
                     },
@@ -252,9 +255,9 @@ export default function HomePage() {
                   type="submit"
                   variant="contained"
                   sx={{
-                    px: 3.5,
-                    py: 1.2,
-                    borderRadius: 50,
+                    px: { xs: 3, sm: 3.5 },
+                    py: { xs: 1, sm: 1.2 },
+                    borderRadius: { xs: 2.5, sm: 50 },
                     fontWeight: 800,
                     bgcolor: '#075e3f',
                     color: '#fff',
@@ -283,7 +286,7 @@ export default function HomePage() {
                   disableElevation
                   endIcon={<ArrowForwardOutlinedIcon />}
                   sx={{
-                    px: 4.5,
+                    px: { xs: 3.5, sm: 4.5 },
                     py: 1.6,
                     borderRadius: 50,
                     bgcolor: '#ffd166',
@@ -309,7 +312,7 @@ export default function HomePage() {
                     variant="outlined"
                     size="large"
                     sx={{
-                      px: 4,
+                      px: { xs: 3, sm: 4 },
                       py: 1.6,
                       borderRadius: 50,
                       borderColor: 'rgba(255,255,255,0.6)',
@@ -332,7 +335,7 @@ export default function HomePage() {
               <Paper
                 elevation={0}
                 sx={{
-                  p: 4,
+                  p: { xs: 2.5, sm: 3.5, md: 4 },
                   borderRadius: 5,
                   bgcolor: '#ffffff',
                   color: '#173b2b',

@@ -117,13 +117,13 @@ export default function CartPage() {
 
       <Stack spacing={2} sx={{ mb: 4 }}>
         {cart.items.map((item) => (
-          <Paper key={item.id} variant="outlined" sx={{ p: 2, opacity: item.available ? 1 : 0.6 }}>
-            <Grid container spacing={2} alignItems="center">
-              <Grid size="auto">
+          <Paper key={item.id} variant="outlined" sx={{ p: { xs: 1.5, sm: 2 }, opacity: item.available ? 1 : 0.6 }}>
+            <Grid container spacing={{ xs: 1.5, sm: 2 }} alignItems="center">
+              <Grid size={{ xs: 3, sm: 'auto' }}>
                 <Box
                   sx={{
-                    width: 72,
-                    height: 72,
+                    width: { xs: 60, sm: 72 },
+                    height: { xs: 60, sm: 72 },
                     borderRadius: 1.5,
                     bgcolor: 'grey.100',
                     overflow: 'hidden',
@@ -144,19 +144,24 @@ export default function CartPage() {
                   )}
                 </Box>
               </Grid>
-              <Grid size="grow">
-                <Typography fontWeight={700}>{item.productName}</Typography>
-                <Typography variant="body2" color="text.secondary">
+              <Grid size={{ xs: 7, sm: 'grow' }}>
+                <Typography fontWeight={700} fontSize={{ xs: 14, sm: 16 }}>{item.productName}</Typography>
+                <Typography variant="body2" color="text.secondary" fontSize={{ xs: 13, sm: 14 }}>
                   {formatCurrency(item.unitPrice)} each
                 </Typography>
                 {!item.available && (
-                  <Typography variant="caption" color="error">
-                    Only {item.availableStock} available — please update the quantity
+                  <Typography variant="caption" color="error" display="block">
+                    Only {item.availableStock} available — please update
                   </Typography>
                 )}
               </Grid>
-              <Grid size="auto">
-                <Stack direction="row" alignItems="center" sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 1 }}>
+              <Grid size={{ xs: 2, sm: 'auto' }} sx={{ display: { xs: 'flex', sm: 'block' }, justifyContent: 'flex-end' }}>
+                <IconButton onClick={() => handleRemove(item)} disabled={busyItemId === item.id} aria-label="Remove item" size="small">
+                  <DeleteOutlineIcon fontSize="small" />
+                </IconButton>
+              </Grid>
+              <Grid size={{ xs: 6, sm: 'auto' }}>
+                <Stack direction="row" alignItems="center" sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 1, width: 'fit-content' }}>
                   <IconButton
                     size="small"
                     disabled={busyItemId === item.id || item.quantity <= 1}
@@ -164,7 +169,7 @@ export default function CartPage() {
                   >
                     <RemoveIcon fontSize="small" />
                   </IconButton>
-                  <Typography sx={{ minWidth: 24, textAlign: 'center', fontFamily: '"IBM Plex Mono", monospace' }}>
+                  <Typography sx={{ minWidth: 24, textAlign: 'center', fontFamily: '"IBM Plex Mono", monospace', fontWeight: 600 }}>
                     {item.quantity}
                   </Typography>
                   <IconButton
@@ -176,13 +181,8 @@ export default function CartPage() {
                   </IconButton>
                 </Stack>
               </Grid>
-              <Grid size="auto" sx={{ minWidth: 90, textAlign: 'right' }}>
-                <Typography fontWeight={700}>{formatCurrency(item.subtotal)}</Typography>
-              </Grid>
-              <Grid size="auto">
-                <IconButton onClick={() => handleRemove(item)} disabled={busyItemId === item.id} aria-label="Remove item">
-                  <DeleteOutlineIcon fontSize="small" />
-                </IconButton>
+              <Grid size={{ xs: 6, sm: 'auto' }} sx={{ textAlign: 'right' }}>
+                <Typography fontWeight={700} fontSize={{ xs: 15, sm: 16 }}>{formatCurrency(item.subtotal)}</Typography>
               </Grid>
             </Grid>
           </Paper>
