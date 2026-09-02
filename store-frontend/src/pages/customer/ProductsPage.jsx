@@ -707,10 +707,10 @@ export default function ProductsPage() {
                 <Grid
                   key={product.id}
                   size={{
-                    xs: 12,
+                    xs: 6,
                     sm: 6,
                     md: 4,
-                    lg: 3,
+                    lg: 4,
                   }}
                 >
                   <Box

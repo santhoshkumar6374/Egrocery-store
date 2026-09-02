@@ -712,7 +712,7 @@ export default function HomePage() {
           <>
             <Grid container spacing={{ xs: 2, sm: 2.5, md: 3 }}>
               {products.map((product) => (
-                <Grid key={product.id} size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
+                <Grid key={product.id} size={{ xs: 6, sm: 6, md: 4, lg: 4 }}>
                   <ProductCard product={product} />
                 </Grid>
               ))}
